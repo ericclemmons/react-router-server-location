@@ -15,7 +15,8 @@
     "react",
     "router",
     "server",
-    "redirect"
+    "redirect",
+    "universal"
   ],
   "author": "Eric Clemmons <eric@smarterspam.com>",
   "license": "MIT",
