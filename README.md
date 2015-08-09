@@ -1,4 +1,4 @@
-# React Router ServerLocation ![https://img.shields.io/npm/v/react-router-server-location.svg](https://img.shields.io/npm/v/react-router-server-location.svg?style=flat-square)
+# React Router `ServerLocation` ![https://img.shields.io/npm/v/react-router-server-location.svg](https://img.shields.io/npm/v/react-router-server-location.svg?style=flat-square)
 
 > A [React Router][1] Location for universal apps.
 
