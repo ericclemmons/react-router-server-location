@@ -4,7 +4,7 @@ import url from "url";
 export default class ServerLocation {
   constructor(req, res) {
     // URL path for both Express & Hapi
-    const { pathname } = req._parsedUrl || req.url;
+    const pathname = req.path || req.url.pathname;
 
     // Combine GET, POST, headers, & method for React Router & components
     const search = Qs.stringify({
