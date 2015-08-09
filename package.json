@@ -27,6 +27,7 @@
     "qs": "4.0.0"
   },
   "devDependencies": {
+    "babel": "5.8.21",
     "babel-tape-runner": "1.2.0",
     "blue-tape": "0.1.10",
     "body-parser": "1.13.3",
@@ -37,6 +38,7 @@
     "react-router": "0.13.3",
     "supertest": "1.0.1",
     "supertest-as-promised": "2.0.2",
+    "tap-spec": "4.0.2",
     "tape": "4.0.3"
   }
 }
