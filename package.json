@@ -1,0 +1,41 @@
+{
+  "name": "react-router-server-location",
+  "version": "1.0.0",
+  "description": "A server-friendly Location for React Router that can handle redirects & transitions.",
+  "main": "dist/ServerLocation.js",
+  "scripts": {
+    "build": "babel --out-dir dist src",
+    "test": "npm run build && babel-tape-runner test/**/*.test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericclemmons/react-router-server-location.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "server",
+    "redirect"
+  ],
+  "author": "Eric Clemmons <eric@smarterspam.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericclemmons/react-router-server-location/issues"
+  },
+  "homepage": "https://github.com/ericclemmons/react-router-server-location#readme",
+  "dependencies": {
+    "qs": "4.0.0"
+  },
+  "devDependencies": {
+    "babel-tape-runner": "1.2.0",
+    "blue-tape": "0.1.10",
+    "body-parser": "1.13.3",
+    "express": "4.13.3",
+    "hapi": "8.8.1",
+    "react": "0.13.3",
+    "react-router": "0.13.3",
+    "supertest": "1.0.1",
+    "supertest-as-promised": "2.0.2",
+    "tape": "4.0.3"
+  }
+}
