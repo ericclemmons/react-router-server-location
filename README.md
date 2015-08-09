@@ -25,10 +25,10 @@
 ### Why `ServiceLocation`?
 
 By default, [React Router][1] uses [StaticLocation](http://rackt.github.io/react-router/#StaticLocation)
-on the server **which does not support transitions**, and the `onAbort` handler
-is not a reliable solution.
+on the server which does not support transitions.  Also, in my experience,
+the `onAbort` handler has not been a reliable means of handling this behavior.
 
-Plus, it allows your app components to take advantage of:
+Plus, `ServerLocation` allows your app components to take advantage of:
 
 - Redirect server-side requests via `router.transitionTo`.
 - The HTTP method via `query._method` (e.g. `GET`, `POST`).
