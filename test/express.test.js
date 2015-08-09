@@ -2,7 +2,7 @@ import request from "supertest-as-promised";
 import test from "blue-tape";
 import url from "url";
 
-import app from "./support/server.express";
+import app from "./support/express";
 
 test("Express", function(t) {
   t.test("/found", function(t) {

@@ -3,12 +3,17 @@ import url from "url";
 
 export default class ServerLocation {
   constructor(req, res) {
-    const pathname = req.url;
+    // URL path for both Hapi & Express
+    const pathname = req.url.pathname ? req.url.pathname : req.url;
 
     // Combine GET, POST, headers, & method for React Router & components
     const search = Qs.stringify({
+      // GET params for both Express & Hapi
       ...req.query,
-      ...req.body,
+
+      // POST params for both Express & Hapi
+      ...(req.body || req.payload),
+
       _headers: req.headers,
       _method: req.method.toUpperCase(),
     });

@@ -32,6 +32,7 @@
     "body-parser": "1.13.3",
     "express": "4.13.3",
     "hapi": "8.8.1",
+    "inject-then": "2.0.0",
     "react": "0.13.3",
     "react-router": "0.13.3",
     "supertest": "1.0.1",
