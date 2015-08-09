@@ -69,6 +69,9 @@ Router.create({ location, routes }).run((Root) => {
 });
 ```
 
+Now, calls to `router.transitionTo` will redirect as expected on the server,
+and `POST` requests to your server-side React application can be supported!
+
 
 ## Authors
 
