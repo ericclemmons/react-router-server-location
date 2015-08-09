@@ -7,7 +7,7 @@ import app from "./support/express";
 test("Express", function(t) {
   t.test("/found", function(t) {
     return request(app)
-      .post("/found")
+      .post("/found?query=query")
       .send({ body: "body" })
       .expect(200)
       .then(({ text }) => {
@@ -22,7 +22,7 @@ test("Express", function(t) {
 
   t.test("/fake", function(t) {
     return request(app)
-      .post("/fake")
+      .post("/fake?query=query")
       .send({ body: "body" })
       .expect(302)
       .then(({ headers: { location } }) => {

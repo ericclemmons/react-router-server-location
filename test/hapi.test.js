@@ -26,7 +26,7 @@ test("Hapi", function(t) {
     return server.injectThen({
       method: "POST",
       payload: { body: "body "},
-      url: "/fake?query",
+      url: "/fake?query=query",
     }).then(({ headers: { location }, statusCode }) => {
       t.equal(statusCode, 302, "HTTP Status should be 302");
       t.ok(location, "Location header set");
