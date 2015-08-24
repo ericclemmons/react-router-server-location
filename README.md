@@ -43,6 +43,7 @@ Plus, `ServerLocation` allows your app components to take advantage of:
 $ npm install --save react-router-server-location
 ```
 
+
 ### Usage
 
 First, include `ServerLocation` as a dependency:
@@ -55,10 +56,10 @@ Next, create an instance using your server's request & response objects:
 
 ```js
 // Express
-const location = new ServerLocation(req, res);
+const location = new ServerLocation({ req, res });
 
 // or Hapi
-const location = new ServerLocation(request, reply);
+const location = new ServerLocation({ request, reply });
 ```
 
 Finally, use [React Router][1] as normal:
@@ -71,6 +72,19 @@ Router.create({ location, routes }).run((Root) => {
 
 Now, calls to `router.transitionTo` will redirect as expected on the server,
 and `POST` requests to your server-side React application can be supported!
+
+If you'd like to handle redirects manually, you can instead pass a callback:
+
+```js
+const location = new ServerLocation({ req }, function(path) {
+  // Maybe save data to the session...
+  req.session.redirected = true;
+  res.redirect(path);
+});
+```
+
+_The `res` or `reply` objects aren't necessary since we're providing our own
+callback._
 
 
 ## Authors
