@@ -2,24 +2,36 @@ import Qs from "qs";
 import url from "url";
 
 export default class ServerLocation {
-  constructor(req, res) {
-    // URL path for both Express & Hapi
-    const pathname = req.path || req.url.pathname;
+  constructor({ req, request, reply, res }, redirect) {
+    if (req) {
+      // Express
+      this.path = url.format({
+        pathname: req.path,
+        search: Qs.stringify({
+          ...req.query,
+          ...req.body,
+          _headers: req.headers,
+          _method: req.method.toUpperCase(),
+        }),
+      });
 
-    // Combine GET, POST, headers, & method for React Router & components
-    const search = Qs.stringify({
-      // GET params for both Express & Hapi
-      ...req.query,
+      this.redirect = redirect || res.redirect.bind(res);
+    } else if (request) {
+      // Hapi
+      this.path = url.format({
+        pathname: request.url.pathname,
+        search: Qs.stringify({
+          ...request.query,
+          ...request.payload,
+          _headers: request.headers,
+          _method: request.method.toUpperCase(),
+        }),
+      });
 
-      // POST params for both Express & Hapi
-      ...(req.body || req.payload),
-
-      _headers: req.headers,
-      _method: req.method.toUpperCase(),
-    });
-
-    this.path = url.format({ pathname, search });
-    this.redirect = (path) => res.redirect(path);
+      this.redirect = redirect || reply.redirect.bind(reply);
+    } else {
+      throw new Error("ServerLocation.constructor requires `req` or `request` key");
+    }
   }
 
   get needsDOM() {

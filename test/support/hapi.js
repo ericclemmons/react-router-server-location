@@ -23,7 +23,7 @@ server.route({
   path: "/{path*}",
   handler: function(request, reply) {
     Router.create({
-      location: new ServerLocation(request, reply),
+      location: new ServerLocation({ request, reply }),
       routes: routes,
     }).run(function(Handler, state) {
       var element = React.createElement(Handler, state);
