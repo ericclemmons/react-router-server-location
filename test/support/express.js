@@ -10,7 +10,7 @@ export default express()
   .use(json())
   .all("*", function(req, res) {
     Router.create({
-      location: new ServerLocation(req, res),
+      location: new ServerLocation({ req, res }),
       routes: routes,
     }).run(function(Handler, state) {
       var element = React.createElement(Handler, state);
