@@ -1,6 +1,6 @@
 {
   "name": "react-router-server-location",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A server-friendly Location for React Router that can handle redirects & transitions.",
   "main": "dist/ServerLocation.js",
   "scripts": {
